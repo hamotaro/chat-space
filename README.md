@@ -40,6 +40,7 @@ Things you may want to cover:
 |image|text||
 |text|text||
 |user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 - belongs_to :group
@@ -47,8 +48,7 @@ Things you may want to cover:
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|groupsname|text|null: false|
-|chat_id|integer|null: false, foreign_key: true|
+|name|string|null: false|
 ### Association
 - has_many :chats
 - has_many :groups_users
