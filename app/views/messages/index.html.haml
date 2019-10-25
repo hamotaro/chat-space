@@ -1,0 +1,62 @@
+.body
+  .top-bar
+    グループを作成しました
+  .chat-side
+    .side-header
+      .side-header-box
+        .side-header-box-user-name
+          OMOTO
+        .side-header-box-menu
+          .side-header-box-menu__new-group
+          =link_to "" do
+            =fa_icon'edit',　class: "side-header-box-menu__edit-icon"
+          .side-header-box-menu__edit-btn
+          =link_to "" do
+            =fa_icon'cog', class: "cog-icon"
+    .groups
+      .group
+        .group__group-name
+          TECH63
+        .group__latest-message
+          チャットむずい
+        .group__group-name
+          TECH63
+        .group__latest-message
+          チャットむずい
+  .chat-main
+    .main-header
+      .main-header-left-box
+        .main-header-left-box__current-group
+          TECH63
+        .main-header-left-box__member-list
+          OMOTO TETSUYA
+      .main-header__edit-btn
+        Edit
+        =link_to ""
+    .messages
+      .message
+        .message-upper-info
+          .message-upper-info__talker
+            TETSUYA
+          .message-upper-info__date
+            2019/10/02
+        .message__text
+          HappyBirthday
+        .message-upper-info
+          .message-upper-info__talker
+            TETSUYA
+          .message-upper-info__date
+            2019/10/02
+        .message__text
+          HappyBirthday
+    .form
+      %form.form-new-message
+      
+        .input-box
+          %input.text{placeholder:"type a message", type:"text"}
+          %label.image{for:"message_image"}
+            = fa_icon'picture-o', class: "image__image-icon"
+          %input.image__file{type:"file", id:"message_image", value:"&#xf03e"}/
+        %input.submit-btn{type:"submit", value:"Send"}
+
+          
