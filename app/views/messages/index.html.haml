@@ -1,28 +1,7 @@
 .body
   .top-bar
     グループを作成しました
-  .chat-side
-    .side-header
-      .side-header-box
-        .side-header-box-user-name
-          OMOTO
-        .side-header-box-menu
-          .side-header-box-menu__new-group
-          =link_to "" do
-            =fa_icon'edit',　class: "side-header-box-menu__edit-icon"
-          .side-header-box-menu__edit-btn
-          =link_to "" do
-            =fa_icon'cog', class: "cog-icon"
-    .groups
-      .group
-        .group__group-name
-          TECH63
-        .group__latest-message
-          チャットむずい
-        .group__group-name
-          TECH63
-        .group__latest-message
-          チャットむずい
+  = render 'shared/side_bar'
   .chat-main
     .main-header
       .main-header-left-box
@@ -34,29 +13,16 @@
         Edit
         =link_to ""
     .messages
-      .message
-        .message-upper-info
-          .message-upper-info__talker
-            TETSUYA
-          .message-upper-info__date
-            2019/10/02
-        .message__text
-          HappyBirthday
-        .message-upper-info
-          .message-upper-info__talker
-            TETSUYA
-          .message-upper-info__date
-            2019/10/02
-        .message__text
-          HappyBirthday
+      = render @messages
+      
     .form
-      %form.form-new-message
+      = form_for [@group, @message] do |f|
       
         .input-box
-          %input.text{placeholder:"type a message", type:"text"}
-          %label.image{for:"message_image"}
-            = fa_icon'picture-o', class: "image__image-icon"
-          %input.image__file{type:"file", id:"message_image", value:"&#xf03e"}/
-        %input.submit-btn{type:"submit", value:"Send"}
-
-          
+          = f.text_field :content, class: 'text', placeholder: 'type a message'
+          = f.label :image, class: 'image' do
+            = fa_icon 'picture-o', class: 'image__image-icon'
+            = f.file_field :image, class: 'image__file'
+        .submit
+          = f.submit 'Send', class: 'submit-btn'
+      
