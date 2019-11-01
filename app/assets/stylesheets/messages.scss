@@ -13,7 +13,8 @@
     width: 300px;
     float: left;
     color: white;
-    height: calc(100vh - 30px);
+    height: 100%;
+    
     .side-header{
       background-color: #253141;
       height: 100px;
@@ -44,7 +45,7 @@
     .groups{
       background-color: #2f3e51;
       padding: 20px 20px 0;
-      height: calc(100vh - 150px);
+      height: calc(100vh - 120px);
       overflow: scroll;
       .group{
         &__name{
@@ -63,12 +64,14 @@
   .chat-main{
     width: calc(100vw - 300px);
     float:left;
+    height: 100px;
     .main-header{
       border-bottom:solid 1px #eeeeee;
       height: 100px;
       padding: 0 40px;
       display: flex;
-      justify-content: space-between;  
+      justify-content: space-between;
+      overflow: scroll;  
       .main-header-left-box{
         &__current-group{
           font-size: 20px;
@@ -93,9 +96,10 @@
       }
     }
     .messages{
-      height: calc(100vh - 313px);
+      height: calc(100vh - 190px);
       background-color: #fafafa;
       padding: 46px 40px;
+      overflow: scroll;
       .message{
         padding-bottom: 40px;
         .message-upper-info{
@@ -116,7 +120,7 @@
           &__text{
             font-size: 14px;
             color: #434a54;
-            margin-bottom: 40px;
+            margin-bottom: 10px;
           }
           &__image{
           }
@@ -124,46 +128,47 @@
       }
     }
     .form{
-      height: 90px;
+      //height: 90px;
       padding: 20px 40px;
       background-color: #ddd;
-      display: flex;
-      .input-box{
-        position: relative;
-        width: calc(100vw - 150px);
-        .text{
-          height: 50px;
-          padding-left: 10px;
-          color: #434a54;
-          border-style: none;
-          width:100%;
-        }
-        .image{
-          font-size: 1.3rem;
-          position: absolute;
-          top: 10px;
-          right: 0px;
-          cursor: pointer;  
+      position: relative;
+      bottom:90px;
+      .new_message{
+        display: flex;
+        .input-box{
+          position: relative;
+          width: 100%;
+          .text{
+            height: 50px;
+            width: calc(100% - 10px);
+            padding-left: 10px;
+            color: #434a54;
+            border-style: none;
+          }
+          .image{
+            font-size: 1.3rem;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;  
             &__file{
-              display: none;
+                display: none;
             }
             &__image-icon {
-              font-family: FontAwesome;
+                font-family: FontAwesome;
             }
           }
         }
-        .submit{
-          .submit-btn{
-            position: relative;
-            width: 100px;
-            height: 50px;
-            padding: 0 30px;
-            margin-left: 25px;
-            background-color: #38aef0;
-            color: white;
-            cursor: pointer;
-          }
+        .submit-btn{
+          width: 100px;
+          height: 50px;
+          padding: 0 30px;
+          margin-left: 15px;
+          background-color: #38aef0;
+          color: white;
+          cursor: pointer;
         }
+      }
     }
   }
 }
