@@ -6,22 +6,23 @@
     .main-header
       .main-header-left-box
         .main-header-left-box__current-group
-          TECH63
+          = @group.name
         .main-header-left-box__member-list
-          OMOTO TETSUYA
+          Menber:
+          = current_user.name
       .main-header__edit-btn
+        = link_to ""
         Edit
-        =link_to ""
     .messages
       = render @messages
       
     .form
-      = form_for [@group, @message] do |f|
+      = form_for [@group, @message],id: "new_message" do |f|
         .input-box
           = f.text_field :content, class: 'text', placeholder: 'type a message'
           = f.label :image, class: 'image' do
             = fa_icon 'picture-o', class: 'image__image-icon'
             = f.file_field :image, class: 'image__file'
         
-        = f.submit 'Send', class: 'submit-btn'
+        = f.submit 'Send', class: 'submit-btn', id: 'submit'
       

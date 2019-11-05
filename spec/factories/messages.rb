@@ -1,3 +1,4 @@
+
 FactoryBot.define do
   factory :message do
     content {Faker::Lorem.sentence}
@@ -6,3 +7,4 @@ FactoryBot.define do
     group
   end
 end
+
