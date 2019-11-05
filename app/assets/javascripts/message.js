@@ -35,11 +35,13 @@ $(function(){
     })
     .done(function(data){
       var html = buildHTML(data);
-      console.log(html)
       $('.messages').append(html)
       $('#message_content').val('')
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
       $('.submit-btn').removeAttr("disabled");
+      $('.submit-btn').click(function() {
+        $('.form').get(0).reset();
+      })
     })
     .fail(function(){
       alert('メッセージ送信に失敗しました');
