@@ -55,6 +55,8 @@ $(function(){
           <p class="message-lower__text">
             ${message.content}
           </p>
+          <img src="" class="message-lower__image" >
+        </div>
         </div>
       </div>`
     } else if (message.image) {
@@ -116,15 +118,12 @@ $(function(){
         messages.forEach(function(message) {
         insertHTML = buildMessageHTML(message);
         $('.messages').append(insertHTML)
-        console.log('done');
         $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
         })
       })
       .fail(function() {
-        console.log('fail');
+        alert('error');
       });
-  //}
-    
   };
   setInterval(reloadMessages, 5000);
 });
