@@ -35,10 +35,10 @@ $(function(){
           ${message.created_at}
         </div>
       </div>
-      <div class="lower-message">`
-        content_text
-        image_url
-      `</div>
+      <div class="lower-message">
+        ${content_text}
+        ${image_url}
+      </div>
     </div>`
     return html;
   };
