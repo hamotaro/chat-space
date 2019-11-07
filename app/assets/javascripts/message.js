@@ -23,6 +23,9 @@ $(function(){
   }
   var buildMessageHTML = function(message) {
     var image_url = (message.image)? `<image class="message-lower__image" src="${message.image}">`:"";
+    var content_text = (message.content)? `<p class="message-lower__text">
+                                             ${message.content}
+                                           </p>`:"";
     if (message.content && message.image) {
       var html = `<div class="message" data-id= ${message.id} >
         <div class="message-upper-info"> 
@@ -33,10 +36,8 @@ $(function(){
             ${message.created_at}
           </div>
         </div>
-        <div class="lower-message">
-          <p class="message-lower__text">
-            ${message.content}
-          </p>`
+        <div class="lower-message">`
+          content_text
           image_url
         `</div>
       </div>`
@@ -50,10 +51,8 @@ $(function(){
             ${message.created_at}
           </div>
         </div>
-        <div class="lower-message">
-          <p class="message-lower__text">
-            ${message.content}
-          </p>`
+        <div class="lower-message">`
+          content_text
           image_url
         `</div>
         </div>
@@ -69,6 +68,7 @@ $(function(){
           </div>
         </div>
         <div class="lower-message">`
+          content_text
           image_url
         `</div>
       </div>`
