@@ -26,54 +26,20 @@ $(function(){
     var content_text = (message.content)? `<p class="message-lower__text">
                                              ${message.content}
                                            </p>`:"";
-    if (message.content && message.image) {
-      var html = `<div class="message" data-id= ${message.id} >
-        <div class="message-upper-info"> 
-          <div class="message-upper-info__talker">
-            ${message.user_name}
-          </div> 
-          <div class="message-upper-info__date">
-            ${message.created_at}
-          </div>
+    var html = `<div class="message" data-id= ${message.id} >
+      <div class="message-upper-info"> 
+        <div class="message-upper-info__talker">
+          ${message.user_name}
+        </div> 
+        <div class="message-upper-info__date">
+          ${message.created_at}
         </div>
-        <div class="lower-message">`
-          content_text
-          image_url
-        `</div>
-      </div>`
-    } else if (message.content) {
-      var html = `<div class="message" data-id=${message.id}>
-        <div class="message-upper-info">
-          <div class="message-upper-info__talker">
-           ${message.user_name}
-          </div>
-          <div class="message-upper-info__date">
-            ${message.created_at}
-          </div>
-        </div>
-        <div class="lower-message">`
-          content_text
-          image_url
-        `</div>
-        </div>
-      </div>`
-    } else if (message.image) {
-      var html = `<div class="message" data-id=${message.id}h>
-        <div class="message-upper-info">
-          <div class="message-upper-info__talker">
-            ${message.user_name}
-          </div>
-          <div class="message-upper-info__date">
-            ${message.created_at}
-          </div>
-        </div>
-        <div class="lower-message">`
-          content_text
-          image_url
-        `</div>
-      </div>`
-      
-    } 
+      </div>
+      <div class="lower-message">`
+        content_text
+        image_url
+      `</div>
+    </div>`
     return html;
   };
 
