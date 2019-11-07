@@ -1,6 +1,6 @@
 $(function(){
   function buildHTML(message){
-    var html = `<div class="message">
+    var html = `<div class="message" data-id=${message.id}>
                   <div class="message-upper-info">
                     <div class="message-upper-info__talker">
                     ${message.user_name}
@@ -21,6 +21,62 @@ $(function(){
                 
     return html;
   }
+  var buildMessageHTML = function(message) {
+    if (message.content && message.image) {
+      
+      var html = `<div class="message" data-id= ${message.id} >
+        <div class="message-upper-info"> 
+          <div class="message-upper-info__talker">
+            ${message.user_name}
+          </div> 
+          <div class="message-upper-info__date">
+            ${message.created_at}
+          </div>
+        </div>
+        <div class="lower-message">
+          <p class="message-lower__text">
+            ${message.content}
+          </p>
+          <img src="${message.image}" class="message-lower__image" >
+        </div>
+      </div>`
+    } else if (message.content) {
+       
+      var html = `<div class="message" data-id=${message.id}>
+        <div class="message-upper-info">
+          <div class="message-upper-info__talker">
+           ${message.user_name}
+          </div>
+          <div class="message-upper-info__date">
+            ${message.created_at}
+          </div>
+        </div>
+        <div class="lower-message">
+          <p class="message-lower__text">
+            ${message.content}
+          </p>
+        </div>
+      </div>`
+    } else if (message.image) {
+      
+      var html = `<div class="message" data-id=${message.id}h>
+        <div class="message-upper-info">
+          <div class="message-upper-info__talker">
+            ${message.user_name}
+          </div>
+          <div class="message-upper-info__date">
+            ${message.created_at}
+          </div>
+        </div>
+        <div class="lower-message">
+          <img src="${message.image}" class="lower-message__image" >
+        </div>
+      </div>`
+      
+    } 
+    return html;
+  };
+
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
@@ -43,7 +99,32 @@ $(function(){
     })
     .fail(function(){
       alert('メッセージ送信に失敗しました');
-    })
+    });
   })
-  
-})
+  var reloadMessages = function() {
+    var last_message_id = $('.message:last').data('id');
+    var href = 'api/messages#index{format: "json"}'
+    $.ajax({
+      url: href,
+      type: 'get',
+      dataType: 'json',
+      data: {id: last_message_id}
+    })
+    
+      .done(function(messages) {
+        var insertHTML = '';
+        messages.forEach(function(message) {
+        insertHTML = buildMessageHTML(message);
+        $('.messages').append(insertHTML)
+        console.log('done');
+        $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+        })
+      })
+      .fail(function() {
+        console.log('fail');
+      });
+  //}
+    
+  };
+  setInterval(reloadMessages, 5000);
+});
