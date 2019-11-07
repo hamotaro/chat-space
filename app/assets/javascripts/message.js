@@ -22,8 +22,8 @@ $(function(){
     return html;
   }
   var buildMessageHTML = function(message) {
+    var image_url = (message.image)? `<image class="message-lower__image" src="${message.image}">`:"";
     if (message.content && message.image) {
-      
       var html = `<div class="message" data-id= ${message.id} >
         <div class="message-upper-info"> 
           <div class="message-upper-info__talker">
@@ -36,12 +36,11 @@ $(function(){
         <div class="lower-message">
           <p class="message-lower__text">
             ${message.content}
-          </p>
-          <img src="${message.image}" class="message-lower__image" >
-        </div>
+          </p>`
+          image_url
+        `</div>
       </div>`
     } else if (message.content) {
-       
       var html = `<div class="message" data-id=${message.id}>
         <div class="message-upper-info">
           <div class="message-upper-info__talker">
@@ -54,13 +53,12 @@ $(function(){
         <div class="lower-message">
           <p class="message-lower__text">
             ${message.content}
-          </p>
-          <img src="" class="message-lower__image" >
-        </div>
+          </p>`
+          image_url
+        `</div>
         </div>
       </div>`
     } else if (message.image) {
-      
       var html = `<div class="message" data-id=${message.id}h>
         <div class="message-upper-info">
           <div class="message-upper-info__talker">
@@ -70,9 +68,9 @@ $(function(){
             ${message.created_at}
           </div>
         </div>
-        <div class="lower-message">
-          <img src="${message.image}" class="lower-message__image" >
-        </div>
+        <div class="lower-message">`
+          image_url
+        `</div>
       </div>`
       
     } 
