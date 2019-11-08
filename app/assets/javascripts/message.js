@@ -86,8 +86,8 @@ $(function(){
         })
       })
       .fail(function() {
+        bining.pry
         alert('error');
-        console.log("fail");
       });
   };
   setInterval(reloadMessages, 5000);
