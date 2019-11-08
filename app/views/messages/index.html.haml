@@ -9,10 +9,12 @@
           = @group.name
         .main-header-left-box__member-list
           Menber:
-          = current_user.name
+          - @group.users.each do |user|
+            %a.user-name
+            = user.name
       .main-header__edit-btn
-        = link_to ""
-        Edit
+        = link_to 'Edit', edit_group_path(@group)
+        
     .messages
       = render @messages
       

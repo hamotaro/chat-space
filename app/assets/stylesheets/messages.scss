@@ -14,6 +14,7 @@
     float: left;
     color: white;
     height: 100%;
+    a:visited { color:white; text-decoration:none };
     
     .side-header{
       background-color: #253141;
@@ -93,6 +94,7 @@
         border: solid 1px #38aef0;
         color: #38aef0;
         cursor: pointer;
+        a:visited { color :#38aef0; text-decoration:none };
       }
     }
     .messages{
