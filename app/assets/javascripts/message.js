@@ -86,9 +86,10 @@ $(function(){
         })
       })
       .fail(function() {
-        bining.pry
         alert('error');
       });
   };
+  if ('group/api/messages'){
   setInterval(reloadMessages, 5000);
+  }
 });
