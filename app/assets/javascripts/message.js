@@ -86,7 +86,8 @@ $(function(){
         })
       })
       .fail(function() {
-        //alert('error');
+        alert('error');
+        console.log("fail");
       });
   };
   setInterval(reloadMessages, 5000);
