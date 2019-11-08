@@ -64,7 +64,7 @@ $(function(){
       
     })
     .fail(function(){
-      //alert('メッセージ送信に失敗しました');
+      alert('メッセージ送信に失敗しました');
     });
   })
   var reloadMessages = function() {
@@ -86,7 +86,7 @@ $(function(){
         })
       })
       .fail(function() {
-        alert('error');
+        //alert('error');
       });
   };
   setInterval(reloadMessages, 5000);
