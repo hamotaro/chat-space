@@ -68,16 +68,17 @@ $(function(){
     });
   })
   var reloadMessages = function() {
-    var last_message_id = $('.message:last').data('id');
-    var href = 'api/messages#index{format: "json"}'
-    $.ajax({
-      url: href,
-      type: 'get',
-      dataType: 'json',
-      data: {id: last_message_id}
-    })
+    if (window.location.href.match(/\/groups\/\d+\/messages/)){
+    　　var last_message_id = $('.message:last').data('id');
+    　　var href = 'api/messages#index{format: "json"}'
+    　　$.ajax({
+      　　url: href,
+      　　type: 'get',
+      　　dataType: 'json',
+      　　data: {id: last_message_id}
+       })
     
-      .done(function(messages) {
+       .done(function(messages) {
         var insertHTML = '';
         messages.forEach(function(message) {
         insertHTML = buildMessageHTML(message);
@@ -88,6 +89,7 @@ $(function(){
       .fail(function() {
         alert('error');
       });
+  };
   };
   setInterval(reloadMessages, 5000);
 });
