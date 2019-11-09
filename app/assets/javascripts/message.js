@@ -14,10 +14,10 @@ $(function(){
                       ${message.content}
                     </p>
                   </div>
-                    ${message.image?
-                      `<img class="message-lower__image" src= ${message.image}>` :''
-                    }`
-                
+                    message.image?
+                      <img class="message-lower__image" src= ${message.image}> :''};
+                      
+                </div>`
                 
     return html;
   }
