@@ -1,6 +1,6 @@
 .account-page {
   .account-page__inner {
-    width: 980px;
+    width: 860px;
     margin: 60px auto;
     padding: 60px;
     background-color: #fff;
@@ -10,6 +10,9 @@
     .account-page__inner--left, .account-page__inner--right {
       float: left;
       width: 50%;
+      h2{
+        color: black;
+      }
     }
     &:after {
       clear: both;
