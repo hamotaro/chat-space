@@ -34,10 +34,12 @@
           display: flex;
           &__new-group{
             &__edit-icon{
-          display: block;
+              display: block;
+              a:visited { color:white; text-decoration:none };
             }
             &__cog-icon{
               display: block;
+              a:visited { color:white; text-decoration:none };
             }
           }
         }

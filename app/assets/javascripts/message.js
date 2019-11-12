@@ -59,11 +59,14 @@ $(function(){
       $('.messages').append(html)
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
       $('.submit-btn').removeAttr("disabled");
-      $('#new_message')[0].reset();
-      
     })
     .fail(function(){
       alert('メッセージ送信に失敗しました');
+    })
+    
+    .always(function(){
+      $(".submit-btn").prop("disabled", false);
+      $('#new_message')[0].reset();
     });
   })
   var reloadMessages = function() {
