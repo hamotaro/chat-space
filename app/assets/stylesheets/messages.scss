@@ -14,6 +14,7 @@
     float: left;
     color: white;
     height: 100%;
+    a:link { color:white; text-decoration:none };
     a:visited { color:white; text-decoration:none };
     
     .side-header{
@@ -35,11 +36,13 @@
           &__new-group{
             &__edit-icon{
               display: block;
-              a:visited { color:white; text-decoration:none };
+              a{color: white;
+              }
             }
             &__cog-icon{
               display: block;
-              a:visited { color:white; text-decoration:none };
+              a{color: white;
+              }
             }
           }
         }
@@ -53,6 +56,7 @@
       .group{
         a{
         text-decoration	:none;
+        color: white;
         }
         &__name{
           font-size: 15px;
@@ -100,9 +104,11 @@
         border: solid 1px #38aef0;
         color: #38aef0;
         cursor: pointer;
+        a:link { color:#38aef0; text-decoration:none };
         a:visited { color :#38aef0; text-decoration:none };
         a{
         text-decoration	:none;
+        color: #38aef0;
         }
       }
     }
