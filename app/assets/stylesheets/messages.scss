@@ -49,14 +49,18 @@
       height: calc(100vh - 120px);
       overflow: scroll;
       .group{
+        a{
+        text-decoration	:none;
+        }
         &__name{
           font-size: 15px;
-          font-weight: bold;
+          //font-weight: bold;
           margin-bottom: 5px;
+          
         }
         &__message{
           font-size: 11px;
-          font-weight: bold;
+          //font-weight: bold;
           margin-bottom: 40px;
         }
       }
@@ -95,6 +99,9 @@
         color: #38aef0;
         cursor: pointer;
         a:visited { color :#38aef0; text-decoration:none };
+        a{
+        text-decoration	:none;
+        }
       }
     }
     .messages{
